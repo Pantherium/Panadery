@@ -1,0 +1,86 @@
+// Include any default variable overrides here (though functions won't be available)
+$beigeclaro: #e1d7a4;
+$beige: #cab66d;
+$marronClaro: #a18531;
+$marron: #855b07;
+$marronaso: #191000;
+
+$navbar-light-color: $marron;
+$navbar-light-hover-color: $marronClaro;
+$navbar-light-active-color: $marronClaro;
+$navbar-light-disabled-color: $marron;
+$navbar-light-icon-color: $marron;
+$navbar-light-toggler-border-color: $marron;
+$navbar-light-brand-color: $navbar-light-active-color;
+$navbar-light-brand-hover-color: $navbar-light-active-color;
+
+$body-tertiary-bg: $marronaso;
+
+// Usa tu fuente personalizada
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+body {
+    background: url(/Recursos/fondos/LightFondoReal.png);
+    background-size: 300px;
+}
+
+/*HEADER*/
+a {
+    display: inline-block;
+}
+
+.logo-text {
+    margin: 5px;
+    width: clamp(230px, 36.5%, 350px);
+    height: 100%;
+}
+
+.navbar {
+    border-top: 8px ridge $beige;
+    border-bottom: 8px groove $beige;
+}
+
+/*END HEADER*/
+
+
+/*FOOTER*/
+
+.footer {
+    width: 100%;
+    background-color: $marronaso;
+    border-top: 8px ridge $beige;
+
+
+    -webkit-box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.copyright {
+    width: 75%;
+
+    color: $beigeclaro;
+    border-top: 1px solid $beigeclaro;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+
+/*END FOOTER*/
+
+.row {
+    background-color: transparent;
+}
+
+.col {
+    background-color: aqua;
+}
