@@ -1,53 +1,317 @@
 // Include any default variable overrides here (though functions won't be available)
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
 $beigeclaro: #e1d7a4;
 $beige: #cab66d;
 $marronClaro: #a18531;
 $marron: #855b07;
 $marronaso: #191000;
 
-$navbar-light-color: $marron;
-$navbar-light-hover-color: $marronClaro;
-$navbar-light-active-color: $marronClaro;
-$navbar-light-disabled-color: $marron;
-$navbar-light-icon-color: $marron;
-$navbar-light-toggler-border-color: $marron;
+$navbar-light-color: $beige; //Color de las letras de los link
+$navbar-light-hover-color: $beigeclaro; //Color del hover de los link
+$navbar-light-disabled-color: $marron; //Color de un link deshabilitado
+$navbar-light-icon-color: $beigeclaro; //Contenido del dropdown (tres rayitas)
 $navbar-light-brand-color: $navbar-light-active-color;
 $navbar-light-brand-hover-color: $navbar-light-active-color;
 
 $body-tertiary-bg: $marronaso;
 
-// Usa tu fuente personalizada
+$spacers: map-merge($spacers, (6: $spacer * 23));
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 // Then add additional custom code here
 
+/* |⚪⚪⚪⚪⚪⚪⚪|BODY|⚪⚪⚪⚪⚪⚪⚪| */
 body {
     background: url(/Recursos/fondos/LightFondoReal.png);
     background-size: 300px;
 }
 
-/*HEADER*/
-a {
-    display: inline-block;
-}
+/* |⬜⬜⬜⬜⬜⬜⬜|BODY|⬜⬜⬜⬜⬜⬜⬜| */
 
-.logo-text {
-    margin: 5px;
-    width: clamp(230px, 36.5%, 350px);
-    height: 100%;
-}
+/* |🔴🔴🔴🔴🔴🔴🔴|HEADER|🔴🔴🔴🔴🔴🔴🔴| */
 
-.navbar {
+.nav-decoration {
     border-top: 8px ridge $beige;
-    border-bottom: 8px groove $beige;
+    border-bottom: 4px groove $beige;
+
+    -webkit-box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
+
+
+    .logoSombra:has(#logoPath:hover) .logo {
+        filter: drop-shadow(0px 0px 6px $marron);
+    }
+
+    .logoSombra:has(#logoPath:active) .logo {
+        filter: drop-shadow(0px 0px 6px $marron);
+    }
+
+    .logo-toggler-svg-container:has(#togglerPath:hover) .logo-toggler {
+        filter: drop-shadow(0px 0px 6px $marron);
+    }
+
+    .logo-toggler-svg-container:has(#togglerPath:active) .logo-toggler {
+        filter: drop-shadow(0px 0px 6px $marron);
+    }
+
+    .logo {
+        display: inline-block;
+        width: 270px;
+        height: auto;
+    }
+
+    .logo-toggler-svg-container {
+        .navbar-toggler {
+            border: 1px solid transparent;
+            padding: 0;
+        }
+
+        .logo-toggler {
+            width: 270px;
+            height: auto;
+        }
+
+    }
+
+    .navbar-nav {
+        font: normal 600 18px Raleway, sans-serif;
+        text-shadow: 1.35px 1.35px $marron;
+    }
 }
 
-/*END HEADER*/
 
 
-/*FOOTER*/
 
+
+/* |🟥🟥🟥🟥🟥🟥🟥|HEADER|🟥🟥🟥🟥🟥🟥🟥| */
+
+
+/* |🟢🟢🟢🟢🟢🟢🟢|SECTION banner|🟢🟢🟢🟢🟢🟢🟢| */
+.banner {
+    position: relative;
+    /* Posiciona .banner en relación a la imagen */
+    overflow: hidden;
+    width: 100%;
+    /* Asegura que se ajuste al ancho de la ventana */
+    height: 100vh;
+    /* Asegura que se ajuste al alto de la ventana pero le resto 7rem del alto de la navbar */
+    z-index: -1;
+    border-bottom: 10px groove $beige;
+
+    //Nesting, (característica del scss) ↓
+    img {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+
+        transform: translateX(-50%);
+        /* Centra horizontalmente la imagen */
+        width: 120vw;
+        /* Hace que la imagen sobresalga horizontalmente */
+        height: 120vh;
+        min-height: 100vh;
+        /* Asegura que la imagen cubra el alto completo */
+        object-fit: cover;
+        /* Ajusta la imagen sin deformarla */
+        filter: brightness(50%);
+    }
+
+    p {
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        transform: translateX(-50%);
+
+        text-align: right;
+        line-height: 1.6;
+        font-size: 24px;
+        color: #ffffff;
+    }
+
+    span {
+        position: absolute;
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+
+        font-size: 60px;
+        color: #ffffff;
+    }
+
+}
+
+
+/* |🟩🟩🟩🟩🟩🟩🟩|SECTION banner|🟩🟩🟩🟩🟩🟩🟩| */
+
+/*---------------------------------------------------*/
+.products-container {
+    background-color: transparent;
+}
+
+.products {
+    background-color: #191000ca;
+}
+
+
+.section-title {
+    text-transform: uppercase;
+    font-size: 26px;
+    color: $beigeclaro;
+    border-bottom: 1px solid $beigeclaro;
+    margin-bottom: 25px;
+}
+
+.card {
+    position: relative;
+    width: 22vw;
+    height: 200px;
+    min-width: 230px;
+    margin: 25px;
+    background-color: $beige;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px $beigeclaro;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+    width: 48px;
+    fill: #333;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card:active {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: $beige;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+    transform: rotateX(0deg);
+}
+
+.card:active .card__content {
+    transform: rotateX(0deg);
+}
+
+.card__title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.card:hover svg {
+    scale: 0;
+}
+
+.card:active svg {
+    scale: 0;
+}
+
+.card__description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: $beigeclaro;
+    border: 1px solid $beigeclaro;
+}
+
+.button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+
+.button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: $marronaso;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:hover {
+    color: #ffffff;
+    border: 1px solid $marronaso;
+}
+
+.button2:hover:before {
+    top: -35%;
+    background-color: #333;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+    top: -45%;
+    background-color: $marronaso;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+/* |🟣🟣🟣🟣🟣🟣🟣|FOOTER|🟣🟣🟣🟣🟣🟣🟣| */
 .footer {
     width: 100%;
     background-color: $marronaso;
@@ -57,30 +321,15 @@ a {
     -webkit-box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 0px 30px 10px rgba(0, 0, 0, 0.75);
 
+    div {
+        width: 75%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.copyright {
-    width: 75%;
-
-    color: $beigeclaro;
-    border-top: 1px solid $beigeclaro;
-    padding: 10px;
-    margin: 10px;
+        color: $beigeclaro;
+        border-top: 1px solid $beige;
+        padding: 10px;
+        margin-top: 10px;
+    }
 }
 
 
-
-/*END FOOTER*/
-
-.row {
-    background-color: transparent;
-}
-
-.col {
-    background-color: aqua;
-}
+/* |🟪🟪🟪🟪🟪🟪🟪|FOOTER|🟪🟪🟪🟪🟪🟪🟪| */
